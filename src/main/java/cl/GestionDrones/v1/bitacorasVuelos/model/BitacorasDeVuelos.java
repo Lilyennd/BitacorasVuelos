@@ -1,3 +1,4 @@
+
 package cl.GestionDrones.v1.bitacorasVuelos.model;
 
 import jakarta.persistence.Column;
