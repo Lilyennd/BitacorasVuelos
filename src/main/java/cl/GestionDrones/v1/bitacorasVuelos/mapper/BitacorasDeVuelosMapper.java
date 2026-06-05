@@ -14,7 +14,6 @@ public class BitacorasDeVuelosMapper {
             null,
             request.idPlanVuelo(),
             request.duracionRealMinutos(),
-            request.estadoFinal(),
             request.observaciones(),
             UUID.randomUUID().toString(), 
             LocalDateTime.now());
@@ -22,7 +21,6 @@ public class BitacorasDeVuelosMapper {
 
     public static void updateBitacoras(UpdateBitacorasRequest dto, BitacorasDeVuelos entity) {
         entity.setDuracionRealMinutos(dto.duracionRealMinutos());
-        entity.setEstadoFinal(dto.estadoFinal());
         entity.setObservaciones(dto.observaciones());
     }
 }

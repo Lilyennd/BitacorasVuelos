@@ -18,15 +18,13 @@ public class BitacorasDeVuelos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Relación 1 a 1: Un plan de vuelo tiene solo una bitácora de cierre
+    
     @Column(name = "id_plan_vuelo", nullable = false, unique = true)
     private Long idPlanVuelo;
 
     @Column(name = "duracion_real_minutos", nullable = false)
     private Integer duracionRealMinutos;
 
-    @Column(name = "estado_final", nullable = false)
-    private String estadoFinal; 
 
     @Column(name = "observaciones", length = 500)
     private String observaciones;
@@ -40,11 +38,10 @@ public class BitacorasDeVuelos {
     public BitacorasDeVuelos() {
     }
 
-    public BitacorasDeVuelos(Long id, Long idPlanVuelo, Integer duracionRealMinutos, String estadoFinal, String observaciones, String firmaDigital, LocalDateTime fechaCierre) {
+    public BitacorasDeVuelos(Long id, Long idPlanVuelo, Integer duracionRealMinutos,  String observaciones, String firmaDigital, LocalDateTime fechaCierre) {
         this.id = id;
         this.idPlanVuelo = idPlanVuelo;
         this.duracionRealMinutos = duracionRealMinutos;
-        this.estadoFinal = estadoFinal;
         this.observaciones = observaciones;
         this.firmaDigital = firmaDigital;
         this.fechaCierre = fechaCierre;
@@ -74,13 +71,6 @@ public class BitacorasDeVuelos {
         this.duracionRealMinutos = duracionRealMinutos;
     }
 
-    public String getEstadoFinal() {
-        return estadoFinal;
-    }
-
-    public void setEstadoFinal(String estadoFinal) {
-        this.estadoFinal = estadoFinal;
-    }
 
     public String getObservaciones() {
         return observaciones;
