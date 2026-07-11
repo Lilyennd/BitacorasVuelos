@@ -44,6 +44,18 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(respuesta, HttpStatus.CONFLICT);
     }
 
+@ExceptionHandler(PlanInalcanzableException.class)
+    public ResponseEntity<Map<String, Object>> manejarPlanInalcanzable(PlanInalcanzableException ex) {
+        Map<String, Object> respuesta = new HashMap<>();
+
+        respuesta.put("timestamp", LocalDateTime.now());
+        respuesta.put("mensaje", ex.getMessage());
+        respuesta.put("error", "Servicio no disponible");
+        respuesta.put("status", HttpStatus.SERVICE_UNAVAILABLE.value());
+
+        return new ResponseEntity<>(respuesta, HttpStatus.SERVICE_UNAVAILABLE);
+    }
+
 @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> manejarExceptionGeneral(Exception ex) {
         Map<String, Object> respuesta = new HashMap<>();
